@@ -24,6 +24,6 @@ func PostgreSQL(host, port, username, password, database string, silent ...bool)
 /*
 QuickPostgreSQL connects to a MySQL database using the environment variables.
 */
-func QuickPostgreSQL() (*gorm.DB, error) {
-	return PostgreSQL(GORM_HOST, GORM_PORT, GORM_USERNAME, GORM_PASSWORD, GORM_DATABASE)
+func QuickPostgreSQL(silent ...bool) (*gorm.DB, error) {
+	return PostgreSQL(GORM_HOST, GORM_PORT, GORM_USERNAME, GORM_PASSWORD, GORM_DATABASE, silent...)
 }
