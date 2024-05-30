@@ -34,9 +34,9 @@ func consumeSorting(tx *gorm.DB, s *Sorting) *gorm.DB {
 	}
 	if s.By != "" {
 		if s.Asc {
-			tx = tx.Order(s.By)
+			tx = tx.Order(safeField(s.By))
 		} else {
-			tx = tx.Order(s.By + " DESC")
+			tx = tx.Order(safeField(s.By) + " DESC")
 		}
 	}
 	return tx
